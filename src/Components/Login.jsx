@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -26,17 +28,20 @@ const Login = () => {
   const LoginHandler = () => {
     if (!email && !password) {
       setEmailError("Email cannot be empty");
-      setPasswordError("Password cannot be empty");
+      setPasswordError("Password cannot be empty");  
     } else if (!email) {
       setEmailError("Email cannot be empty");
     } else if (!password) {
       setPasswordError("Password cannot be empty");
-    } else if (password.length < 8) {
+    }
+    else if (password.length < 8) {
       setPasswordError("Password must be at least 8 characters long");
     } else if (email === hardcodeEmail && password === hardcodePassword) {
       setPassword("");
       setEmail("");
-      alert("Login Successful");
+      setEmailError("");
+      setPasswordError("");
+      toast.success("Login successful");
     } else if (email !== hardcodeEmail) {
       setEmailError("Invalid email");
     } else if (password !== hardcodePassword) {
@@ -90,17 +95,20 @@ const Login = () => {
         <div style={{ display: "flex", flexDirection: "column", gap: "14px"}}>
           <TextField
             onChange={(e) => setEmail(e.target.value)}
+            value={email}
             id="outlined-basic"
             placeholder="Enter Email Address"
             sx={{ width: "100%" }}
             style={{ border: emailerror ? "1px solid red" : "none", borderRadius: "4px" }}
             />
             {emailerror && (
-              <Typography variant="body2" sx={{ color: "red", fontSize: "14px" }}>
+              <Typography variant="body2" sx={{ color: "red", fontSize: "14px", fontWeight: "bold"}}>
                 {emailerror}
               </Typography>
             )}
           <OutlinedInput
+            style={{ border: passworderror ? "1px solid red" : "none", borderRadius: "4px" }}
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
             id="outlined-adornment-password"
             placeholder="Enter Password"
@@ -122,7 +130,7 @@ const Login = () => {
             }
           />
           {passworderror && (
-            <Typography variant="body2" sx={{ color: "red", fontSize: "14px" }}>
+            <Typography variant="body2" sx={{ color: "red", fontSize: "14px",  fontWeight: "bold" }}>
               {passworderror}
             </Typography>
           )}
@@ -140,6 +148,7 @@ const Login = () => {
           >
             login
           </Button>
+          <Toaster/>
         </div>
       </CardContent>
     </Card>
