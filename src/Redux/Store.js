@@ -4,7 +4,7 @@ import jobReducer from "./JobSlice";
 
 
 const store = configureStore({
-    reducer:{
+    reducer: {
         job: jobReducer
     }
 })

@@ -13,6 +13,7 @@ import {
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +21,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [emailerror, setEmailError] = useState("");
   const [passworderror, setPasswordError] = useState("");
-
+  const navigate = useNavigate();
   const hardcodeEmail = "admin@example.com";
   const hardcodePassword = "password123";
 
@@ -40,7 +41,10 @@ const Login = () => {
       setEmail("");
       setEmailError("");
       setPasswordError("");
-      toast.success("Login successful");
+      setTimeout(() => {
+        toast.success("Login successful");
+        navigate("/joblist");
+      }, 2000);
     } else if (email !== hardcodeEmail) {
       setEmailError("Invalid email");
     } else if (password !== hardcodePassword) {
