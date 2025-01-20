@@ -107,7 +107,7 @@ const Login = () => {
           {emailerror && (
             <Typography
               variant="body2"
-              sx={{ color: "red", fontSize: "14px", fontWeight: "bold" }}
+              sx={{ color: "var(--secondary-color)", fontSize: "14px", fontWeight: "bold" }}
             >
               {emailerror}
             </Typography>
@@ -141,7 +141,7 @@ const Login = () => {
           {passworderror && (
             <Typography
               variant="body2"
-              sx={{ color: "red", fontSize: "14px", fontWeight: "bold" }}
+              sx={{ color: "var(--secondary-color)", fontSize: "14px", fontWeight: "bold" }}
             >
               {passworderror}
             </Typography>

@@ -54,7 +54,7 @@ const Joblist = () => {
                   >
                     Postion: {job.position}
                   </Typography>
-                  <Button sx={{ borderRadius: '10px', fontSize: '12px', backgroundColor: 'var(--primary-color)', color: "var(--background-color)", padding: '5px 10px' }}>Easy Apply</Button>
+                  <Button variant sx={{ borderRadius: '10px', fontSize: '12px', backgroundColor: 'var(--primary-color)', color: "var(--background-color)"}}>Easy Apply</Button>
                 </div>
               </Item>
             </Grid>

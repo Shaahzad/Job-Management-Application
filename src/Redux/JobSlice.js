@@ -54,7 +54,6 @@ const JobSlice = createSlice({
     reducers: {
         addjob: (state, action) => {
             state.jobs = [...state.jobs, action.payload]
-            console.log(state.jobs)
         }
     }
 })
