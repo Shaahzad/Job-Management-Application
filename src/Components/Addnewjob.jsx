@@ -51,10 +51,8 @@ const Addnewjob = () => {
 
     const logoutHandler = () => {
         localStorage.removeItem('credential')
-        setTimeout(() => {
-            toast.success('Logout successful')
-            navigate('/')
-        }, 2000);
+        toast.success('Logout successful')
+        navigate('/')
     }
 
     const style = {

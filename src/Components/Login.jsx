@@ -41,10 +41,8 @@ const Login = () => {
       setEmail("");
       setEmailError("");
       setPasswordError("");
-      setTimeout(() => {
-        toast.success("Login successful");
-        navigate("/joblist");
-      }, 2000);
+      toast.success("Login successful");
+      navigate("/joblist");
     } else if (email !== hardcodeEmail) {
       setEmailError("Invalid email");
     } else if (password !== hardcodePassword) {
@@ -65,7 +63,7 @@ const Login = () => {
   return (
     <Card
       sx={{
-        maxWidth: { md: "500px", xs: "300px" },
+        maxWidth: { md: "500px", xs: "300px", sm: "400px" },
         margin: "auto",
         marginTop: "100px",
         padding: "10px",
@@ -150,7 +148,6 @@ const Login = () => {
           )}
           <Button
             onClick={LoginHandler}
-            variant="contained"
             sx={{
               backgroundColor: "var(--primary-color)",
               color: "var(--background-color)",
