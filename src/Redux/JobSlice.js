@@ -29,6 +29,26 @@ const initialState = [
         "title": "Frontend Developer",
         "position": 1
     },
+    {
+        "id": GenerateUniqueId(),
+        "title": "Frontend Developer",
+        "position": 1
+    },
+    {
+        "id": GenerateUniqueId(),
+        "title": "Frontend Developer",
+        "position": 1
+    },
+    {
+        "id": GenerateUniqueId(),
+        "title": "Frontend Developer",
+        "position": 1
+    },
+    {
+        "id": GenerateUniqueId(),
+        "title": "Frontend Developer",
+        "position": 1
+    },
 ]
 
 const JobSlice = createSlice({

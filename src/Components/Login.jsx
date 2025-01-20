@@ -35,6 +35,7 @@ const Login = () => {
     } else if (password.length < 8) {
       setPasswordError("Password must be at least 8 characters long");
     } else if (email === hardcodeEmail && password === hardcodePassword) {
+      localStorage.setItem('credential', JSON.stringify(email))
       setPassword("");
       setEmail("");
       setEmailError("");
@@ -97,7 +98,7 @@ const Login = () => {
             placeholder="Enter Email Address"
             sx={{ width: "100%" }}
             style={{
-              border: emailerror ? "1px solid red" : "none",
+              border: emailerror ? "1px solid var(--secondary-color)" : "none",
               borderRadius: "4px",
             }}
           />
@@ -111,7 +112,7 @@ const Login = () => {
           )}
           <OutlinedInput
             style={{
-              border: passworderror ? "1px solid red" : "none",
+              border: passworderror ? "1px solid var(--secondary-color)" : "none",
               borderRadius: "4px",
             }}
             value={password}
@@ -148,7 +149,7 @@ const Login = () => {
             variant="contained"
             sx={{
               backgroundColor: "var(--primary-color)",
-              color: "white",
+              color: "var(--background-color)",
               borderRadius: "30px",
               padding: "12px",
               fontWeight: "bold",
