@@ -14,6 +14,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { GitHub, Google } from "@mui/icons-material";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -67,7 +68,7 @@ const Login = () => {
         margin: "auto",
         marginTop: "100px",
         padding: "10px",
-        boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+        // boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
       }}
     >
       <CardContent>
@@ -92,6 +93,17 @@ const Login = () => {
           Manage job postings effortlessly. Sign in to access your dashboard and
           find the best candidates.
         </Typography>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <Typography style={{ display: "flex", alignItems: "center", gap: "5px", backgroundColor: 'var(--background-color)', padding: '10px' }}>
+            With GitHub
+            <GitHub />
+          </Typography>
+          <Typography style={{ display: "flex", alignItems: "center", gap: "5px", backgroundColor: 'var(--background-color)', padding: '10px' }}>
+            With Google
+            <Google/>
+          </Typography>
+          
+        </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
           <TextField
             onChange={(e) => setEmail(e.target.value)}
