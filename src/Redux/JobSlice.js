@@ -45,6 +45,11 @@ const initialState = {
             "title": "Angular Developer",
             "position": 1
         },
+        {
+            "id": GenerateUniqueId(),
+            "title": "Angular Developer",
+            "position": 1
+        },
     ],
 }
 
