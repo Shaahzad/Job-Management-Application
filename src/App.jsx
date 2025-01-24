@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ProtectedRoute from './Components/ProtectedRoute'
 
 const App = () => {
+
   return (
     <div>
       <BrowserRouter>

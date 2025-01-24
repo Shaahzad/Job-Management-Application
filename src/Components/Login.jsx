@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -53,6 +53,13 @@ const Login = () => {
     }
   };
 
+  useEffect(() => {
+    const getUser = JSON.parse(localStorage.getItem('credential'));
+    if (getUser) {
+      navigate('/joblist');
+    }
+  }, [navigate]);
+  
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
@@ -174,8 +181,8 @@ const Login = () => {
             login
           </Button>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
-          <Typography sx={{ color: 'var(--primary-color)', textDecoration: 'underline', cursor: 'pointer'}}>Don't have an account? Sign Up</Typography>
-          <Typography sx={{ color: 'var(--primary-color)', textDecoration: 'underline', cursor: 'pointer'}}>Forgot Password?</Typography>
+            <Typography sx={{ color: 'var(--primary-color)', textDecoration: 'underline', cursor: 'pointer' }}>Don't have an account? Sign Up</Typography>
+            <Typography sx={{ color: 'var(--primary-color)', textDecoration: 'underline', cursor: 'pointer' }}>Forgot Password?</Typography>
           </div>
           <Toaster />
         </div>

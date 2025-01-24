@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -26,7 +26,7 @@ const Addnewjob = () => {
     const AddJobHandler = () => {
         if (!title && !position) {
             setTitleError('Title is required');
-            setPositionError('Position is required');            
+            setPositionError('Position is required');
         } else if (!title) {
             setTitleError('Title is required');
         }
@@ -72,11 +72,11 @@ const Addnewjob = () => {
 
     return (
         <div>
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', paddingRight: '40px' }}>
-                <Button onClick={handleOpen} variant='contained' sx={{backgroundColor: 'var(--primary-color)', color: 'var(--background-color)', borderRadius: '10px'}} endIcon={<WorkHistoryIcon />}>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginBottom: '14px' }}>
+                <Button onClick={handleOpen} variant='contained' sx={{ backgroundColor: 'var(--primary-color)', color: 'var(--background-color)', borderRadius: '10px' }} endIcon={<WorkHistoryIcon />}>
                     Add New Job
                 </Button>
-                <Button onClick={logoutHandler} variant="contained" sx={{backgroundColor: 'var(--primary-color)', color: 'var(--background-color)', borderRadius: '10px'}} endIcon={<LogoutOutlined />}>
+                <Button onClick={logoutHandler} variant="contained" sx={{ backgroundColor: 'var(--primary-color)', color: 'var(--background-color)', borderRadius: '10px' }} endIcon={<LogoutOutlined />}>
                     Logout
                 </Button>
             </div>
