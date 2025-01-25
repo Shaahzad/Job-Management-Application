@@ -11,13 +11,13 @@ import {
   InputLabel,
   OutlinedInput,
   TextField,
+  Container
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { GitHub, Google, LinkedIn } from "@mui/icons-material";
-
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -59,7 +59,7 @@ const Login = () => {
       navigate('/joblist');
     }
   }, [navigate]);
-  
+
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
@@ -71,123 +71,124 @@ const Login = () => {
   };
 
   return (
-    <Card
-      sx={{
-        maxWidth: { md: "500px", xs: "300px", sm: "400px" },
-        margin: "auto",
-        marginTop: "50px",
-        padding: "10px",
-        boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-        borderRadius: "10px",
-      }}
-    >
-      <CardContent>
-        <Typography
-          gutterBottom
-          sx={{
-            fontSize: { md: "40px", xs: "24px" },
-            fontWeight: "bold",
-            marginBottom: "0px",
-          }}
-        >
-          Recruiter Login
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{
-            marginBottom: "20px",
-            color: "gray",
-            fontSize: { md: "16px", xs: "12px" },
-          }}
-        >
-          Manage job postings effortlessly. Sign in to access your dashboard and
-          find the best candidates.
-        </Typography>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "10px", marginBottom: "20px" }}>
-          <Typography style={{ width: '100%', display: "flex", justifyContent: 'center', alignItems: "center", gap: "5px", backgroundColor: 'var(--background-color)', padding: '10px', cursor: 'pointer', borderRadius: '8px', transition: 'transform 0.2s ease', fontWeight: 'bold' }}
-            onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-          >
-            With LinkedIn
-            <LinkedIn />
-          </Typography>
-          <Typography style={{ width: '100%', display: "flex", justifyContent: 'center', alignItems: "center", gap: "5px", backgroundColor: 'var(--background-color)', padding: '10px', cursor: 'pointer', borderRadius: '8px', transition: 'transform 0.2s ease', fontWeight: 'bold' }}
-            onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-          >
-            With Google
-            <Google />
-          </Typography>
-        </div>
-        <Divider>OR</Divider>
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginTop: "20px" }}>
-          <TextField
-            error={emailerror ? true : false}
-            helperText={emailerror}
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            id="outlined-basic"
-            placeholder="Enter Email Address"
-            variant="outlined"
+    <Container>
+      <Card
+        sx={{
+          maxWidth: "500px",
+          margin: "auto",
+          marginTop: "50px",
+          padding: "10px",
+          borderRadius: "10px",
+        }}
+      >
+        <CardContent>
+          <Typography
+            gutterBottom
             sx={{
-              "& .MuiFormHelperText-root": {
-                marginLeft: 0
-              },
-            }}
-          />
-          <TextField
-            error={passworderror ? true : false}
-            helperText={passworderror}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            id="outlined-adornment-password"
-            placeholder="Enter Password"
-            type={showPassword ? "text" : "password"}
-            variant="outlined"
-            sx={{
-              "& .MuiFormHelperText-root": {
-                marginLeft: 0
-              },
-            }}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label={
-                      showPassword ? "hide the password" : "display the password"
-                    }
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    onMouseUp={handleMouseUpPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-            fullWidth
-          />
-          <Button
-            onClick={LoginHandler}
-            sx={{
-              backgroundColor: "var(--primary-color)",
-              color: "var(--background-color)",
-              borderRadius: "30px",
-              padding: "12px",
+              fontSize: { md: "40px", xs: "24px" },
               fontWeight: "bold",
+              marginBottom: "0px",
             }}
           >
-            login
-          </Button>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
-            <Typography sx={{ color: 'var(--primary-color)', textDecoration: 'underline', cursor: 'pointer' }}>Don't have an account? Sign Up</Typography>
-            <Typography sx={{ color: 'var(--primary-color)', textDecoration: 'underline', cursor: 'pointer' }}>Forgot Password?</Typography>
+            Recruiter Login
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              marginBottom: "20px",
+              color: "gray",
+              fontSize: { md: "16px", xs: "12px" },
+            }}
+          >
+            Manage job postings effortlessly. Sign in to access your dashboard and
+            find the best candidates.
+          </Typography>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "10px", marginBottom: "20px" }}>
+            <Typography style={{ width: '100%', display: "flex", justifyContent: 'center', alignItems: "center", gap: "5px", backgroundColor: 'var(--background-color)', padding: '10px', cursor: 'pointer', borderRadius: '8px', transition: 'transform 0.2s ease', fontWeight: 'bold' }}
+              onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+            >
+              With LinkedIn
+              <LinkedIn />
+            </Typography>
+            <Typography style={{ width: '100%', display: "flex", justifyContent: 'center', alignItems: "center", gap: "5px", backgroundColor: 'var(--background-color)', padding: '10px', cursor: 'pointer', borderRadius: '8px', transition: 'transform 0.2s ease', fontWeight: 'bold' }}
+              onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+            >
+              With Google
+              <Google />
+            </Typography>
           </div>
-          <Toaster />
-        </div>
-      </CardContent>
-    </Card>
+          <Divider>OR</Divider>
+          <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginTop: "20px" }}>
+            <TextField
+              error={emailerror ? true : false}
+              helperText={emailerror}
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              id="outlined-basic"
+              placeholder="Enter Email Address"
+              variant="outlined"
+              sx={{
+                "& .MuiFormHelperText-root": {
+                  marginLeft: 0
+                },
+              }}
+            />
+            <TextField
+              error={passworderror ? true : false}
+              helperText={passworderror}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              id="outlined-adornment-password"
+              placeholder="Enter Password"
+              type={showPassword ? "text" : "password"}
+              variant="outlined"
+              sx={{
+                "& .MuiFormHelperText-root": {
+                  marginLeft: 0
+                },
+              }}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label={
+                        showPassword ? "hide the password" : "display the password"
+                      }
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      onMouseUp={handleMouseUpPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              fullWidth
+            />
+            <Button
+              onClick={LoginHandler}
+              sx={{
+                backgroundColor: "var(--primary-color)",
+                color: "var(--background-color)",
+                borderRadius: "30px",
+                padding: "12px",
+                fontWeight: "bold",
+              }}
+            >
+              login
+            </Button>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+              <Typography sx={{ color: 'var(--primary-color)', textDecoration: 'underline', cursor: 'pointer' }}>Don't have an account? Sign Up</Typography>
+              <Typography sx={{ color: 'var(--primary-color)', textDecoration: 'underline', cursor: 'pointer' }}>Forgot Password?</Typography>
+            </div>
+            <Toaster />
+          </div>
+        </CardContent>
+      </Card>
+    </Container>
   );
 };
 

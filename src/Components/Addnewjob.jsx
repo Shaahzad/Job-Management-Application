@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -7,10 +7,11 @@ import Button from '@mui/material/Button';
 import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 import { TextField, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { GenerateUniqueId, addjob } from '../Redux/JobSlice';
+import { addjob } from '../Redux/Action';
 import { Toaster, toast } from 'react-hot-toast';
 import { LogoutOutlined } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import { GenerateUniqueId } from '../Redux/JobReducer';
 
 const Addnewjob = () => {
     const [open, setOpen] = useState(false);
@@ -98,20 +99,34 @@ const Addnewjob = () => {
                         <Typography sx={{ fontSize: '20px', fontWeight: 'bold' }}>
                             Add New Job
                         </Typography>
-                        <TextField value={title} placeholder='Job Title' onChange={(e) => setTitle(e.target.value)} style={{ border: titleerror && '1px solid var(--secondary-color)', }} />
-                        {titleerror && <Typography
-                            variant="body2"
-                            sx={{ color: "var(--secondary-color)", fontSize: "14px", fontWeight: "bold" }}
-                        >
-                            {titleerror}
-                        </Typography>}
-                        <TextField value={position} placeholder='Position' onChange={(e) => setPosition(e.target.value)} style={{ border: positionerror && '1px solid var(--secondary-color)', }} />
-                        {positionerror && <Typography
-                            variant="body2"
-                            sx={{ color: "var(--secondary-color)", fontSize: "14px", fontWeight: "bold" }}
-                        >
-                            {positionerror}
-                        </Typography>}
+                        <TextField
+                            error={titleerror ? true : false}
+                            helperText={titleerror}
+                            onChange={(e) => setTitle(e.target.value)}
+                            value={title}
+                            id="outlined-basic"
+                            placeholder="Title"
+                            variant="outlined"
+                            sx={{
+                                "& .MuiFormHelperText-root": {
+                                    marginLeft: 0
+                                },
+                            }}
+                        />
+                        <TextField
+                            error={positionerror ? true : false}
+                            helperText={positionerror}
+                            onChange={(e) => setPosition(e.target.value)}
+                            value={position}
+                            id="outlined-basic"
+                            placeholder="Position"
+                            variant="outlined"
+                            sx={{
+                                "& .MuiFormHelperText-root": {
+                                    marginLeft: 0
+                                },
+                            }}
+                        />
                         <Button onClick={AddJobHandler} variant="contained" sx={{ backgroundColor: 'var(--primary-color)' }}>Submit</Button>
                     </Box>
                 </Fade>

@@ -1,6 +1,3 @@
-import { createSlice } from "@reduxjs/toolkit";
-
-
 export const GenerateUniqueId = () => Date.now() + Math.floor(Math.random() * 10000)
 
 const initialState = {
@@ -53,16 +50,18 @@ const initialState = {
     ],
 }
 
-const JobSlice = createSlice({
-    name: 'Job',
-    initialState,
-    reducers: {
-        addjob: (state, action) => {
-            state.jobs = [...state.jobs, action.payload]
-        }
+const jobReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case "ADD_JOB":
+            return {
+                ...state,
+                jobs: [...state.jobs, action.payload]
+            };
+
+        default:
+            return state;
     }
-})
+};
 
 
-export const { addjob } = JobSlice.actions
-export default JobSlice.reducer
+export default jobReducer

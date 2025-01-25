@@ -17,9 +17,9 @@ const Joblist = () => {
         <Grid container spacing={2}>
           {jobs.map((job) => (
             <Grid key={job.id} item md={4} sm={6} xs={12}>
-              <Paper sx={{ p: 2, borderRadius: '10px', cursor: 'pointer' }} 
-               onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0px 0px 10px 0px rgba(0, 0, 0, 0.1)'}
-               onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
+              <Paper sx={{ p: 2, borderRadius: '10px', cursor: 'pointer' }}
+                onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0px 0px 10px 0px rgba(0, 0, 0, 0.1)'}
+                onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
               >
                 <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                   <img style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '10px' }} src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Company Image" />
