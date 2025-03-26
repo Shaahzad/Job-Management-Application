@@ -127,7 +127,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
               value={email}
               id="outlined-basic"
-              placeholder="Enter Email Address"
+              placeholder="admin@example.com"
               variant="outlined"
               sx={{
                 "& .MuiFormHelperText-root": {
@@ -141,7 +141,7 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               id="outlined-adornment-password"
-              placeholder="Enter Password"
+              placeholder="password123"
               type={showPassword ? "text" : "password"}
               variant="outlined"
               sx={{
